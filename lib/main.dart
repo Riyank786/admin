@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
+import 'package:admin/content.dart';
 import 'package:admin/sidebar.dart';
 import 'package:flutter/material.dart';
 
@@ -42,20 +43,20 @@ class MyHomePage extends StatelessWidget {
       body: Row(
         children: <Widget>[
           Expanded(
-            flex: 2, // 20%
-            child: new Card(
-              elevation: 5,
-              child: new Center(
-                child: SideBar(),
-              ),
-            ),
-          ),
+              flex: 2, // 20%
+              child: new Card(
+                color: Color.fromARGB(255, 25, 69, 146),
+                elevation: 5,
+                child: new Center(
+                  child: SideBar(),
+                ),
+              )),
           Expanded(
             flex: 8, // 60%
             child: new Card(
               elevation: 5,
               child: new Center(
-                child: new Text('tile 2'),
+                child: Content(),
               ),
             ),
           ),
