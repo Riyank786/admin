@@ -25,13 +25,13 @@ class SideBarState extends State<SideBar> {
           const Icon(
             Icons.supervisor_account_sharp,
             color: Colors.white,
-            size: 27,
+            size: 17,
           ),
           const Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: 10), //apply padding horizontal or vertical only
             child: Text("ADMINISTRATOR",
-                style: TextStyle(color: Colors.white, fontSize: 17)),
+                style: TextStyle(color: Colors.white, fontSize: 12)),
           ),
         ]),
       ),
@@ -48,18 +48,18 @@ class SideBarState extends State<SideBar> {
             padding: EdgeInsets.all(12),
             child: Icon(
               Icons.account_circle_rounded,
-              size: 102,
+              size: 97,
             ),
           ),
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
+            margin: const EdgeInsets.symmetric(vertical: 7.0, horizontal: 0.0),
             child: FlatButton(
               color: Colors.blueAccent,
               textColor: Colors.white,
               onPressed: () {},
               child: const Text(
                 'Change Photo',
-                style: TextStyle(fontSize: 20.0),
+                style: TextStyle(fontSize: 12.0),
               ),
             ),
           ),
@@ -71,7 +71,7 @@ class SideBarState extends State<SideBar> {
               onPressed: () {},
               child: const Text(
                 'Change Password',
-                style: TextStyle(fontSize: 20.0),
+                style: TextStyle(fontSize: 12.0),
               ),
             ),
           )
@@ -173,12 +173,16 @@ class SideBarState extends State<SideBar> {
               ),
             ]),
           ),
-          const SizedBox(
+          Container(
+            alignment: Alignment.center,
             width: double.infinity,
-            child: TextField(
+            height: 32,
+            child: const TextField(
+              cursorColor: Colors.black,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Enter a search term',
+                contentPadding: EdgeInsets.all(10.0),
               ),
             ),
           ),
@@ -194,7 +198,7 @@ class SideBarState extends State<SideBar> {
               onPressed: () {},
               child: const Text(
                 'Copy',
-                style: TextStyle(fontSize: 20.0),
+                style: TextStyle(fontSize: 12.0),
               ),
             ),
           ),
