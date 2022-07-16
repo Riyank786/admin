@@ -172,19 +172,21 @@ class ContentState extends State<Content> {
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(
-                                    height: inputStyle["height"],
-                                    child: TextField(
-                                      controller: p_name,
-                                      readOnly: !isProfileEdit,
-                                      cursorColor: Colors.black,
-                                      style: const TextStyle(fontSize: 12.0),
-                                      decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'ADMINISTRATOR',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
-                                    ),
-                                  )
+                                      height: inputStyle["height"],
+                                      child: TextField(
+                                        controller: p_name,
+                                        readOnly: !isProfileEdit,
+                                        cursorColor: Colors.black,
+                                        style: const TextStyle(fontSize: 12.0),
+                                        decoration: const InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            hintText: 'ADMINISTRATOR',
+                                            contentPadding:
+                                                EdgeInsets.all(10.0),
+                                            fillColor: Color.fromARGB(
+                                                61, 174, 193, 216),
+                                            filled: true),
+                                      ))
                                 ],
                               ), // here place whathever child you want
                             ),
@@ -211,10 +213,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'U',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'U',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   ),
                                 ],
@@ -251,10 +255,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'admin@abc.com',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'admin@abc.com',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -291,6 +297,9 @@ class ContentState extends State<Content> {
                                             decoration: const InputDecoration(
                                               border: OutlineInputBorder(),
                                               hintText: '6165165181',
+                                              fillColor: Color.fromARGB(
+                                                  61, 174, 193, 216),
+                                              filled: true,
                                               contentPadding:
                                                   EdgeInsets.all(10.0),
                                             ),
@@ -357,10 +366,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'this is admin account',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'this is admin account',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -396,10 +407,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'admin',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'admin',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -427,6 +440,9 @@ class ContentState extends State<Content> {
                                     height: 27,
                                     child: InputDecorator(
                                       decoration: InputDecoration(
+                                        fillColor: const Color.fromARGB(
+                                            61, 174, 193, 216),
+                                        filled: true,
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 0.0,
@@ -485,6 +501,9 @@ class ContentState extends State<Content> {
                                     height: 27,
                                     child: InputDecorator(
                                       decoration: InputDecoration(
+                                        fillColor: const Color.fromARGB(
+                                            61, 174, 193, 216),
+                                        filled: true,
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 0.0,
@@ -557,10 +576,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: '30000',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: '30000',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -576,11 +597,19 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  const Text(
+                                    "",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
                                   SizedBox(
                                     width: double.infinity,
                                     height: 27,
                                     child: InputDecorator(
                                       decoration: InputDecoration(
+                                        fillColor: const Color.fromARGB(
+                                            61, 174, 193, 216),
+                                        filled: true,
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 0.0,
@@ -698,10 +727,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'Your company name',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'Your company name',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -737,10 +768,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'eg. 1234 main street',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'eg. 1234 main street',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -776,10 +809,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'Appartment or suite',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'Appartment or suite',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -807,6 +842,9 @@ class ContentState extends State<Content> {
                                     height: 27,
                                     child: InputDecorator(
                                       decoration: InputDecoration(
+                                        fillColor: const Color.fromARGB(
+                                            61, 174, 193, 216),
+                                        filled: true,
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 0.0,
@@ -865,6 +903,9 @@ class ContentState extends State<Content> {
                                     height: 27,
                                     child: InputDecorator(
                                       decoration: InputDecoration(
+                                        fillColor: const Color.fromARGB(
+                                            61, 174, 193, 216),
+                                        filled: true,
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 0.0,
@@ -937,10 +978,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: '3000',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: '30000',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -956,11 +999,19 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  const Text(
+                                    "",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
                                   SizedBox(
                                     width: double.infinity,
                                     height: 27,
                                     child: InputDecorator(
                                       decoration: InputDecoration(
+                                        fillColor: const Color.fromARGB(
+                                            61, 174, 193, 216),
+                                        filled: true,
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 0.0,
@@ -1078,10 +1129,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'Name of bank',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'Name of bank',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -1117,10 +1170,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'eg. 1234 Main St',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'eg. 1234 Main St',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -1156,10 +1211,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: 'Appartment, suite, etc.',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: 'Appartment, suite, etc.',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -1187,6 +1244,9 @@ class ContentState extends State<Content> {
                                     height: 27,
                                     child: InputDecorator(
                                       decoration: InputDecoration(
+                                        fillColor: const Color.fromARGB(
+                                            61, 174, 193, 216),
+                                        filled: true,
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 0.0,
@@ -1245,6 +1305,9 @@ class ContentState extends State<Content> {
                                     height: 27,
                                     child: InputDecorator(
                                       decoration: InputDecoration(
+                                        fillColor: const Color.fromARGB(
+                                            61, 174, 193, 216),
+                                        filled: true,
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 0.0,
@@ -1318,10 +1381,12 @@ class ContentState extends State<Content> {
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        hintText: '30000',
-                                        contentPadding: EdgeInsets.all(10.0),
-                                      ),
+                                          border: OutlineInputBorder(),
+                                          hintText: '30000',
+                                          contentPadding: EdgeInsets.all(10.0),
+                                          fillColor:
+                                              Color.fromARGB(61, 174, 193, 216),
+                                          filled: true),
                                     ),
                                   )
                                 ],
@@ -1337,11 +1402,19 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  const Text(
+                                    "",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
                                   SizedBox(
                                     width: double.infinity,
                                     height: 27,
                                     child: InputDecorator(
                                       decoration: InputDecoration(
+                                        fillColor: const Color.fromARGB(
+                                            61, 174, 193, 216),
+                                        filled: true,
                                         contentPadding:
                                             const EdgeInsets.symmetric(
                                                 vertical: 0.0,
@@ -1420,6 +1493,9 @@ class ContentState extends State<Content> {
                                           decoration: const InputDecoration(
                                             border: OutlineInputBorder(),
                                             hintText: 'Swift Code',
+                                            fillColor: Color.fromARGB(
+                                                61, 174, 193, 216),
+                                            filled: true,
                                             contentPadding:
                                                 EdgeInsets.all(10.0),
                                           ),
@@ -1447,6 +1523,9 @@ class ContentState extends State<Content> {
                                           decoration: const InputDecoration(
                                             border: OutlineInputBorder(),
                                             hintText: 'IBAN Code',
+                                            fillColor: Color.fromARGB(
+                                                61, 174, 193, 216),
+                                            filled: true,
                                             contentPadding:
                                                 EdgeInsets.all(10.0),
                                           ),
