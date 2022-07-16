@@ -57,27 +57,18 @@ class ContentState extends State<Content> {
   var p_phone = TextEditingController();
   var p_address1 = TextEditingController();
   var p_address2 = TextEditingController();
-  var p_country = TextEditingController();
-  var p_state = TextEditingController();
   var p_postCode = TextEditingController();
-  var p_city = TextEditingController();
 
   // company
   var c_name = TextEditingController();
   var c_address1 = TextEditingController();
   var c_address2 = TextEditingController();
-  var c_country = TextEditingController();
-  var c_state = TextEditingController();
   var c_postCode = TextEditingController();
-  var c_city = TextEditingController();
 
   var py_bankName = TextEditingController();
   var py_address = TextEditingController();
   var py_address2 = TextEditingController();
-  var py_country = TextEditingController();
-  var py_state = TextEditingController();
   var py_postCode = TextEditingController();
-  var py_city = TextEditingController();
   var py_swiftCode = TextEditingController();
   var py_IBAN = TextEditingController();
 
@@ -102,27 +93,18 @@ class ContentState extends State<Content> {
             p_phone.text = settings['p_phone'];
             p_address1.text = settings['p_address1'];
             p_address2.text = settings['p_address2'];
-            p_country.text = settings['p_country'];
-            p_state.text = settings['p_state'];
             p_postCode.text = settings['p_postCode'];
-            p_city.text = settings['p_city'];
             // company
             c_name.text = settings['c_name'];
             c_address1.text = settings['c_address1'];
             c_address2.text = settings['c_address2'];
-            c_country.text = settings['c_country'];
-            c_state.text = settings['c_state'];
             c_postCode.text = settings['c_postCode'];
-            c_city.text = settings['c_city'];
 
             // payment
             py_bankName.text = settings['py_bankName'];
             py_address.text = settings['py_address'];
             py_address2.text = settings['py_address2'];
-            py_country.text = settings['py_country'];
-            py_state.text = settings['py_state'];
             py_postCode.text = settings['py_postCode'];
-            py_city.text = settings['py_city'];
             py_swiftCode.text = settings['py_swiftCode'];
             py_IBAN.text = settings['py_IBAN'];
           }
@@ -440,33 +422,49 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "Country",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
                                   SizedBox(
                                     width: double.infinity,
-                                    child: DropdownButton(
-                                      isExpanded: true,
-                                      value: p_country.text,
-                                      items: <String>[
-                                        'India',
-                                        'USA',
-                                      ].map<DropdownMenuItem<String>>(
-                                          (String value) {
-                                        return DropdownMenuItem<String>(
-                                          value: value,
-                                          child: Text(value),
-                                        );
-                                      }).toList(),
-                                      onChanged: (String? newValue) {
-                                        setState(() {
-                                          if (newValue != null) {
-                                            p_country.text = newValue;
-                                          }
-                                        });
-                                      },
+                                    height: 27,
+                                    child: InputDecorator(
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 0.0,
+                                                horizontal: 12.0),
+                                        labelText: 'Country',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          isDense: true,
+                                          isExpanded: true,
+                                          style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.black),
+                                          value:
+                                              settings['p_country'].toString(),
+                                          items: <String>[
+                                            'India',
+                                            'USA',
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: isProfileEdit
+                                              ? (String? newValue) {
+                                                  setState(() {
+                                                    settings['p_country'] =
+                                                        newValue;
+                                                  });
+                                                }
+                                              : null,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -482,33 +480,48 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "State",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
                                   SizedBox(
                                     width: double.infinity,
-                                    child: DropdownButton(
-                                      isExpanded: true,
-                                      value: p_state.text,
-                                      items: <String>[
-                                        'Gujarat',
-                                        'Bihar',
-                                      ].map<DropdownMenuItem<String>>(
-                                          (String value) {
-                                        return DropdownMenuItem<String>(
-                                          value: value,
-                                          child: Text(value),
-                                        );
-                                      }).toList(),
-                                      onChanged: (String? newValue) {
-                                        setState(() {
-                                          if (newValue != null) {
-                                            p_state.text = newValue;
-                                          }
-                                        });
-                                      },
+                                    height: 27,
+                                    child: InputDecorator(
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 0.0,
+                                                horizontal: 12.0),
+                                        labelText: 'State',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          isDense: true,
+                                          isExpanded: true,
+                                          style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.black),
+                                          value: settings['p_state'].toString(),
+                                          items: <String>[
+                                            'Gujarat',
+                                            'Bihar',
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: isProfileEdit
+                                              ? (String? newValue) {
+                                                  setState(() {
+                                                    settings['p_state'] =
+                                                        newValue;
+                                                  });
+                                                }
+                                              : null,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -563,28 +576,50 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "City",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  TextFormField(
-                                    controller: p_city,
-                                    readOnly: !isProfileEdit,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 27,
+                                    child: InputDecorator(
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 0.0,
+                                                horizontal: 12.0),
+                                        labelText: 'City',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          isDense: true,
+                                          isExpanded: true,
+                                          style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.black),
+                                          value: settings['p_city'].toString(),
+                                          items: <String>[
+                                            'Vadodara',
+                                            'Ahemdabad',
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: isProfileEdit
+                                              ? (String? newValue) {
+                                                  setState(() {
+                                                    settings['p_city'] =
+                                                        newValue;
+                                                  });
+                                                }
+                                              : null,
+                                        ),
+                                      ),
                                     ),
-                                    style: const TextStyle(
-                                        //fontSize: 24,
-                                        //  color: Colors.blue,
-                                        //fontWeight: FontWeight.w600,
-                                        height: 0.1),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        settings['p_city'] = value;
-                                      });
-                                    },
-                                  )
+                                  ),
                                 ],
                               ), // here place whathever child you want
                             ),
@@ -659,7 +694,7 @@ class ContentState extends State<Content> {
                                     height: inputStyle["height"],
                                     child: TextField(
                                       controller: c_name,
-                                      readOnly: !isProfileEdit,
+                                      readOnly: !isCompanyEdit,
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
@@ -698,7 +733,7 @@ class ContentState extends State<Content> {
                                     height: inputStyle["height"],
                                     child: TextField(
                                       controller: c_address1,
-                                      readOnly: !isProfileEdit,
+                                      readOnly: !isCompanyEdit,
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
@@ -737,7 +772,7 @@ class ContentState extends State<Content> {
                                     height: inputStyle["height"],
                                     child: TextField(
                                       controller: c_address2,
-                                      readOnly: !isProfileEdit,
+                                      readOnly: !isCompanyEdit,
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
@@ -767,28 +802,51 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "Country",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  TextFormField(
-                                    readOnly: isCompanyEdit,
-                                    controller: c_country,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 27,
+                                    child: InputDecorator(
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 0.0,
+                                                horizontal: 12.0),
+                                        labelText: 'Country',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          isDense: true,
+                                          isExpanded: true,
+                                          style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.black),
+                                          value:
+                                              settings['c_country'].toString(),
+                                          items: <String>[
+                                            'India',
+                                            'USA',
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: isCompanyEdit
+                                              ? (String? newValue) {
+                                                  setState(() {
+                                                    settings['c_country'] =
+                                                        newValue;
+                                                  });
+                                                }
+                                              : null,
+                                        ),
+                                      ),
                                     ),
-                                    style: const TextStyle(
-                                        //fontSize: 24,
-                                        //  color: Colors.blue,
-                                        //fontWeight: FontWeight.w600,
-                                        height: 0.1),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        settings['c_country'] = value;
-                                      });
-                                    },
-                                  )
+                                  ),
                                 ],
                               ), // here place whathever child you want
                             ),
@@ -802,28 +860,50 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "State",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  TextFormField(
-                                    readOnly: isCompanyEdit,
-                                    controller: c_state,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 27,
+                                    child: InputDecorator(
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 0.0,
+                                                horizontal: 12.0),
+                                        labelText: 'State',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          isDense: true,
+                                          isExpanded: true,
+                                          style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.black),
+                                          value: settings['c_state'].toString(),
+                                          items: <String>[
+                                            'Gujarat',
+                                            'Bihar',
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: isCompanyEdit
+                                              ? (String? newValue) {
+                                                  setState(() {
+                                                    settings['c_state'] =
+                                                        newValue;
+                                                  });
+                                                }
+                                              : null,
+                                        ),
+                                      ),
                                     ),
-                                    style: const TextStyle(
-                                        //fontSize: 24,
-                                        //  color: Colors.blue,
-                                        //fontWeight: FontWeight.w600,
-                                        height: 0.1),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        settings['c_state'] = value;
-                                      });
-                                    },
-                                  )
+                                  ),
                                 ],
                               ), // here place whathever child you want
                             ),
@@ -837,7 +917,7 @@ class ContentState extends State<Content> {
                     child: Row(
                       children: <Widget>[
                         Flexible(
-                          flex: 4,
+                          flex: 5,
                           child: Center(
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -849,22 +929,19 @@ class ContentState extends State<Content> {
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
-                                  TextFormField(
-                                    readOnly: isCompanyEdit,
-                                    controller: c_postCode,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                  SizedBox(
+                                    height: inputStyle["height"],
+                                    child: TextField(
+                                      controller: c_postCode,
+                                      readOnly: !isCompanyEdit,
+                                      cursorColor: Colors.black,
+                                      style: const TextStyle(fontSize: 12.0),
+                                      decoration: const InputDecoration(
+                                        border: OutlineInputBorder(),
+                                        hintText: '3000',
+                                        contentPadding: EdgeInsets.all(10.0),
+                                      ),
                                     ),
-                                    style: const TextStyle(
-                                        //fontSize: 24,
-                                        //  color: Colors.blue,
-                                        //fontWeight: FontWeight.w600,
-                                        height: 0.1),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        settings['c_postCode'] = value;
-                                      });
-                                    },
                                   )
                                 ],
                               ), // here place whathever child you want
@@ -879,28 +956,50 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "City",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  TextFormField(
-                                    readOnly: isCompanyEdit,
-                                    controller: c_city,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 27,
+                                    child: InputDecorator(
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 0.0,
+                                                horizontal: 12.0),
+                                        labelText: 'City',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          isDense: true,
+                                          isExpanded: true,
+                                          style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.black),
+                                          value: settings['c_city'].toString(),
+                                          items: <String>[
+                                            'Vadodara',
+                                            'Ahemdabad',
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: isCompanyEdit
+                                              ? (String? newValue) {
+                                                  setState(() {
+                                                    settings['c_city'] =
+                                                        newValue;
+                                                  });
+                                                }
+                                              : null,
+                                        ),
+                                      ),
                                     ),
-                                    style: const TextStyle(
-                                        //fontSize: 24,
-                                        //  color: Colors.blue,
-                                        //fontWeight: FontWeight.w600,
-                                        height: 0.1),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        settings['c_city'] = value;
-                                      });
-                                    },
-                                  )
+                                  ),
                                 ],
                               ), // here place whathever child you want
                             ),
@@ -975,7 +1074,7 @@ class ContentState extends State<Content> {
                                     height: inputStyle["height"],
                                     child: TextField(
                                       controller: py_bankName,
-                                      readOnly: !isProfileEdit,
+                                      readOnly: !paymentEdit,
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
@@ -1014,7 +1113,7 @@ class ContentState extends State<Content> {
                                     height: inputStyle["height"],
                                     child: TextField(
                                       controller: py_address,
-                                      readOnly: !isProfileEdit,
+                                      readOnly: !paymentEdit,
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
@@ -1053,7 +1152,7 @@ class ContentState extends State<Content> {
                                     height: inputStyle["height"],
                                     child: TextField(
                                       controller: py_address2,
-                                      readOnly: !isProfileEdit,
+                                      readOnly: !paymentEdit,
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
@@ -1083,24 +1182,51 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "Country",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  TextFormField(
-                                    readOnly: !paymentEdit,
-                                    controller: py_country,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 27,
+                                    child: InputDecorator(
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 0.0,
+                                                horizontal: 12.0),
+                                        labelText: 'Country',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          isDense: true,
+                                          isExpanded: true,
+                                          style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.black),
+                                          value:
+                                              settings['py_country'].toString(),
+                                          items: <String>[
+                                            'India',
+                                            'USA',
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: paymentEdit
+                                              ? (String? newValue) {
+                                                  setState(() {
+                                                    settings['py_country'] =
+                                                        newValue;
+                                                  });
+                                                }
+                                              : null,
+                                        ),
+                                      ),
                                     ),
-                                    style: const TextStyle(height: 0.1),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        settings['py_country'] = value;
-                                      });
-                                    },
-                                  )
+                                  ),
                                 ],
                               ), // here place whathever child you want
                             ),
@@ -1114,28 +1240,51 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "State",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  TextFormField(
-                                    readOnly: !paymentEdit,
-                                    controller: py_state,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 27,
+                                    child: InputDecorator(
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 0.0,
+                                                horizontal: 12.0),
+                                        labelText: 'State',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          isDense: true,
+                                          isExpanded: true,
+                                          style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.black),
+                                          value:
+                                              settings['py_state'].toString(),
+                                          items: <String>[
+                                            'Gujarat',
+                                            'Bihar',
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: paymentEdit
+                                              ? (String? newValue) {
+                                                  setState(() {
+                                                    settings['py_state'] =
+                                                        newValue;
+                                                  });
+                                                }
+                                              : null,
+                                        ),
+                                      ),
                                     ),
-                                    style: const TextStyle(
-                                        //fontSize: 24,
-                                        //  color: Colors.blue,
-                                        //fontWeight: FontWeight.w600,
-                                        height: 0.1),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        settings['py_state'] = value;
-                                      });
-                                    },
-                                  )
+                                  ),
                                 ],
                               ), // here place whathever child you want
                             ),
@@ -1165,7 +1314,7 @@ class ContentState extends State<Content> {
                                     height: inputStyle["height"],
                                     child: TextField(
                                       controller: py_postCode,
-                                      readOnly: !isProfileEdit,
+                                      readOnly: !paymentEdit,
                                       cursorColor: Colors.black,
                                       style: const TextStyle(fontSize: 12.0),
                                       decoration: const InputDecoration(
@@ -1188,28 +1337,50 @@ class ContentState extends State<Content> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "City",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  TextFormField(
-                                    readOnly: !paymentEdit,
-                                    controller: py_city,
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 27,
+                                    child: InputDecorator(
+                                      decoration: InputDecoration(
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                vertical: 0.0,
+                                                horizontal: 12.0),
+                                        labelText: 'City',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0)),
+                                      ),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          isDense: true,
+                                          isExpanded: true,
+                                          style: const TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.black),
+                                          value: settings['py_city'].toString(),
+                                          items: <String>[
+                                            'Vadodara',
+                                            'Ahemdabad',
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: paymentEdit
+                                              ? (String? newValue) {
+                                                  setState(() {
+                                                    settings['py_city'] =
+                                                        newValue;
+                                                  });
+                                                }
+                                              : null,
+                                        ),
+                                      ),
                                     ),
-                                    style: const TextStyle(
-                                        //fontSize: 24,
-                                        //  color: Colors.blue,
-                                        //fontWeight: FontWeight.w600,
-                                        height: 0.1),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        settings['py_city'] = value;
-                                      });
-                                    },
-                                  )
+                                  ),
                                 ],
                               ), // here place whathever child you want
                             ),
@@ -1242,7 +1413,7 @@ class ContentState extends State<Content> {
                                         height: inputStyle["height"],
                                         child: TextField(
                                           controller: py_swiftCode,
-                                          readOnly: !isProfileEdit,
+                                          readOnly: !paymentEdit,
                                           cursorColor: Colors.black,
                                           style:
                                               const TextStyle(fontSize: 12.0),
@@ -1269,7 +1440,7 @@ class ContentState extends State<Content> {
                                         height: inputStyle["height"],
                                         child: TextField(
                                           controller: py_IBAN,
-                                          readOnly: !isProfileEdit,
+                                          readOnly: !paymentEdit,
                                           cursorColor: Colors.black,
                                           style:
                                               const TextStyle(fontSize: 12.0),
@@ -1332,30 +1503,49 @@ class ContentState extends State<Content> {
     settings['p_phone'] = p_phone.text;
     settings['p_address1'] = p_address1.text;
     settings['p_address2'] = p_address2.text;
-    settings['p_country'] = p_country.text;
-    settings['p_state'] = p_state.text;
     settings['p_postCode'] = p_postCode.text;
-    settings['p_city'] = p_city.text;
     // company
     settings['c_name'] = c_name.text;
     settings['c_address1'] = c_address1.text;
     settings['c_address2'] = c_address2.text;
-    settings['c_country'] = c_country.text;
-    settings['c_state'] = c_state.text;
     settings['c_postCode'] = c_postCode.text;
-    settings['c_city'] = c_city.text;
 
     // payment
     settings['py_bankName'] = py_bankName.text;
     settings['py_address'] = py_address.text;
     settings['py_address2'] = py_address2.text;
-    settings['py_country'] = py_country.text;
-    settings['py_state'] = py_state.text;
     settings['py_postCode'] = py_postCode.text;
-    settings['py_city'] = py_city.text;
     settings['py_swiftCode'] = py_swiftCode.text;
     settings['py_IBAN'] = py_IBAN.text;
 
+    if (settings['p_email'] != "" && settings['p_email'] != null) {
+      print("Email is not empty");
+      print(settings['p_email']);
+      bool emailValid = RegExp(
+              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+          .hasMatch(settings['p_email']);
+      if (!emailValid) {
+        setState(() {
+          isProfileEdit = !isProfileEdit;
+        });
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text('Invalid Email'),
+                content: const Text('Please enter a valid email'),
+                actions: <Widget>[
+                  FlatButton(
+                    child: const Text('OK'),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  )
+                ],
+              );
+            });
+      }
+    }
     storage.setItem(key, settings);
   }
 }
