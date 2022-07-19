@@ -10,20 +10,6 @@ class MyProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(right: 16.0),
-            child: Row(
-              // ignore: prefer_const_literals_to_create_immutables
-              children: <Widget>[
-                Icon(Icons.account_circle_rounded, size: 24.0),
-                Text('Administrator', style: TextStyle(fontSize: 25))
-              ],
-            ),
-          ),
-        ],
-      ),
       body: SingleChildScrollView(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,

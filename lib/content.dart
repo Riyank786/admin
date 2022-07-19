@@ -14,6 +14,7 @@ class ContentState extends State<Content> {
   bool isProfileEdit = false;
   bool isCompanyEdit = false;
   bool paymentEdit = false;
+  bool isPhoneEdit = false;
   final String key = 'ADMIN_INFO';
   bool initialized = false;
   Map<String, dynamic> inputStyle = {"fontSize": 12, "height": 27};
@@ -134,14 +135,17 @@ class ContentState extends State<Content> {
                                 color: Colors.blueAccent,
                                 textColor: Colors.white,
                                 padding: const EdgeInsets.all(15),
-                                onPressed: () {
-                                  if (isProfileEdit) {
-                                    saveToStorage();
-                                  }
-                                  setState(() {
-                                    isProfileEdit = !isProfileEdit;
-                                  });
-                                },
+                                onPressed: (isPhoneEdit && !isProfileEdit)
+                                    ? null
+                                    : () {
+                                        if (isProfileEdit) {
+                                          saveToStorage();
+                                        }
+                                        setState(() {
+                                          isProfileEdit = !isProfileEdit;
+                                          isPhoneEdit = !isPhoneEdit;
+                                        });
+                                      },
                                 child: !isProfileEdit
                                     ? const Text(
                                         'Edit Profile',
@@ -290,7 +294,8 @@ class ContentState extends State<Content> {
                                           height: inputStyle["height"],
                                           child: TextField(
                                             controller: p_phone,
-                                            readOnly: !isProfileEdit,
+                                            readOnly: (!isPhoneEdit &&
+                                                !isProfileEdit),
                                             cursorColor: Colors.black,
                                             style:
                                                 const TextStyle(fontSize: 12.0),
@@ -312,22 +317,38 @@ class ContentState extends State<Content> {
                                     flex: 3,
                                     child: Container(
                                       width: double.infinity,
-                                      margin: const EdgeInsets.only(top: 19),
+                                      margin: const EdgeInsets.only(top: 18),
                                       child: Column(
                                         children: [
                                           SizedBox(
                                             width: double.infinity,
                                             height: inputStyle["height"],
                                             child: FlatButton(
-                                              color: Colors.blueAccent,
-                                              textColor: Colors.white,
-                                              onPressed: () {},
-                                              child: const Text(
-                                                'Change Phone',
-                                                style:
-                                                    TextStyle(fontSize: 12.0),
-                                              ),
-                                            ),
+                                                color: Colors.blueAccent,
+                                                textColor: Colors.white,
+                                                onPressed: !isProfileEdit
+                                                    ? () {
+                                                        if (isPhoneEdit &&
+                                                            !isProfileEdit) {
+                                                          saveToStorage();
+                                                        }
+                                                        setState(() {
+                                                          isPhoneEdit =
+                                                              !isPhoneEdit;
+                                                        });
+                                                      }
+                                                    : null,
+                                                child: isPhoneEdit
+                                                    ? const Text(
+                                                        'Save',
+                                                        style: TextStyle(
+                                                            fontSize: 12.0),
+                                                      )
+                                                    : const Text(
+                                                        'Change Phone',
+                                                        style: TextStyle(
+                                                            fontSize: 12.0),
+                                                      )),
                                           )
                                         ],
                                       ),
@@ -1598,8 +1619,6 @@ class ContentState extends State<Content> {
     settings['py_IBAN'] = py_IBAN.text;
 
     if (settings['p_email'] != "" && settings['p_email'] != null) {
-      print("Email is not empty");
-      print(settings['p_email']);
       bool emailValid = RegExp(
               r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
           .hasMatch(settings['p_email']);

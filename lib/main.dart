@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new
 
-import 'package:admin/content.dart';
-import 'package:admin/profile.dart';
-import 'package:admin/sidebar.dart';
+import './content.dart';
+import './profile.dart';
+import './sidebar.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
